@@ -42,7 +42,7 @@
     <div class="form-group">
         <label class="col-md-2 col-form-label">Tanggal lahir</label>
             <div class="col-md-5">
-                <input type="text" name="nama" class="form-control" placeholder="Tanggal Lahir value="<?php echo set_value('nama') ?>" required>
+                <input type="text" name="nama" class="form-control" placeholder="Tanggal Lahir" value="<?php echo set_value('nama') ?>" required>
             </div>
     </div>
     <div class="form-group">
