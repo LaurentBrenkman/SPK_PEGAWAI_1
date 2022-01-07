@@ -27,8 +27,8 @@ class User extends CI_Controller {
         {
             //  validasi input
             $valid = $this->form_validation;
-
-            $valid->set_rules('nip','Nip','required|is_unique[nip]',
+            //is_unique[nama tabel.nama field yang ada di database]
+            $valid->set_rules('nip','Nip','required|is_unique[pegawai.nip]',
                         array(  'required'      =>  '%s harus diisi',
                                 'is_unique'     =>  '%s Sudah ada. Masukkan Nip Baru.'));
             
@@ -68,22 +68,21 @@ class User extends CI_Controller {
 
             //Masuk Database
                     } else {
-                    //     $i = $this->input;
-                    //     $data = array ( 'nip'               => $i->post('nip'),
-                    //                     'nama'              => $i->post('nama'),
-                    //                     'alamat'            => $i->post('alamat'),
-                    //                     'gender'            => $i->post('gender'),
-                    //                     'ttl'               => $i->post('ttl'),
-                    //                     'tmk'               => $i->post('tmk'),
-                    //                     'status_pegawai'    => $i->post('status_pegawai'),
-                    //                     'pendidikan'        => $i->post('pendidikan'),
-                    //                     'golongan'          => $i->post('golongan'),
-                    //                     'status'            => 1,
-                    // );
-                    print_r('bisa');
-                    // $this->user_model->tambah($data);
-                    // $this->session->set_flashdata('sukses','Data telah berhasil ditambah');
-                    // redirect(base_url('admin/user'),'refresh');
+                        $i = $this->input;
+                        $data = array ( 'nip'               => $i->post('nip'),
+                                        'nama'              => $i->post('nama'),
+                                        'alamat'            => $i->post('alamat'),
+                                        'gender'            => $i->post('gender'),
+                                        'ttl'               => $i->post('ttl'),
+                                        'tmk'               => $i->post('tmk'),
+                                        'status_pegawai'    => $i->post('status_pegawai'),
+                                        'pendidikan'        => $i->post('pendidikan'),
+                                        'golongan'          => $i->post('golongan'),
+                                        'status'            => 1,
+                    );
+                    $this->user_model->tambah($data);
+                    $this->session->set_flashdata('sukses','Data telah berhasil ditambah');
+                    redirect(base_url('admin/user'),'refresh');
                 }
                     // end masuk database
         }
