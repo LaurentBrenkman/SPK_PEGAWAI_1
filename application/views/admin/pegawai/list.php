@@ -32,7 +32,6 @@ if($this->session->flashdata('success')){
             <th>STATUS_PEGAWAI</th>
             <th>PENDIDIKAN</th>
             <th>GOLONGAN</th>
-            <th>STATUS</th>
             <th>ACTION</th>
 
         </tr>
@@ -50,7 +49,6 @@ if($this->session->flashdata('success')){
             <td><?php echo $pegawai->status_pegawai ?></td>
             <td><?php echo $pegawai->pendidikan ?></td>
             <td><?php echo $pegawai->golongan ?></td>
-            <td><?php echo $pegawai->status ?></td>
             <td>
                 <a href="<?php echo base_url('admin/user/edit/' . $pegawai->nip) ?>" 
                 class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> Edit</a>
