@@ -27,6 +27,19 @@ class User_model extends CI_Model {
            $query = $this->db->get();
            return $query->row(); //kalau ingin membca  satu data maka pakai row kalau ingin pakai banyak data pakai result
        }
+
+       //  login user
+       public function login($username, $password)
+       {
+           $this->db->select('*');
+           $this->db->from('user');
+           $this->db->where(array('username' => $username,
+                                   'password' =>SHA1($password)));
+           $this->db->order_by('id_user','desc');
+           $query = $this->db->get();
+           return $query->row(); //kalau ingin membca  satu data maka pakai row kalau ingin pakai banyak data pakai result
+       }
+
     // Tambah
     public function tambah($data)
     {

@@ -28,13 +28,42 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <!-- date-range-picker -->
 <script src="<?php echo base_url() ?>assets/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Toastr -->
+<script src="<?php echo base_url() ?>assets/plugins/toastr/toastr.min.js"></script>
+
+
+
+<?php if($this->session->flashdata('sukses')) { ?>
+  <script type="text/javascript">
+    var pesan = '<?php echo $this->session->flashdata('sukses') ?>'
+    toastr.success(pesan);
+  </script>
+<?php }else if ($this->session->flashdata('error')){ ?>
+  <script type="text/javascript">
+    var pesan = '<?php echo $this->session->flashdata('error') ?>'
+    toastr.error(pesan);
+  </script>
+<?php }; ?>
+
 
 <script>
   //Date picker
-  $('#reservationdate').datetimepicker({
-   format: 'L'
+  // $('#reservationdate').datetimepicker({
+  //  format: 'L'
+  // });
+  // // toastr
+  // $('.toastrDefaultSuccess').click(function() {
+  //     toastr.success('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+  //   });
+  //   $('.toastrDefaultInfo').click(function() {
+  //     toastr.info('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+  //   });
+  //   $('.toastrDefaultError').click(function() {
+  //     toastr.error('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+  //   });
+  //   $('.toastrDefaultWarning').click(function() {
+  //     toastr.warning('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+  //   });
 </script>
-
-    });
 </body>
 </html>
